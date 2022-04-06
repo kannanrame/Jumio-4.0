@@ -1,0 +1,34 @@
+apply plugin: 'kotlin-android'
+
+repositories {
+    google()
+    mavenCentral()
+    gradlePluginPortal()
+    maven { url 'https://mobile-sdk.jumio.com' }
+}
+
+ext {
+    SDK_VERSION = "4.0.0"
+    kotlin_version = "1.5.30"
+}
+
+dependencies {
+    // Jumio dependencies
+    implementation "com.jumio.android:core:${SDK_VERSION}"
+    implementation "com.jumio.android:linefinder:${SDK_VERSION}"
+    implementation "com.jumio.android:mrz:${SDK_VERSION}"
+    implementation "com.jumio.android:nfc:${SDK_VERSION}"
+    implementation "com.jumio.android:barcode:${SDK_VERSION}"
+    implementation "com.jumio.android:barcode-mlkit:${SDK_VERSION}"
+    implementation "com.jumio.android:iproov:${SDK_VERSION}"
+    implementation "com.jumio.android:defaultui:${SDK_VERSION}"
+
+    //only for the sample code
+    implementation "androidx.activity:activity-ktx:1.4.0"
+
+    //Kotlin
+    implementation "androidx.multidex:multidex:2.0.1"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    implementation fileTree(dir: 'libs', include: '*.jar')
+}
